@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/login', [UserController::class, 'Login']);
+Route::get('/register', [UserController::class, 'Register']);
 Route::get('/notification', function (){
-    return view('notification');
+    return view('Backend.notification');
 });

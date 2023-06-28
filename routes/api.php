@@ -19,6 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/test', function (Request $req){
     event(new App\Events\RealTimeMessage("events"));
-
     return "Event Sent";
 });

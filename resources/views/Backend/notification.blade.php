@@ -2,9 +2,68 @@
 @section('content')
 
     <!-- Content wrapper -->
-    <div class="content-wrapper">
-        <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4">Welcome</h4>
+    <div class="content-wrapper p-4">
+        <div class="container-xxl flex-grow-1 container-p-y row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <h5 class="card-header">Call Service</h5>
+                    <div class="card-body">
+                        <div class="p-4">
+                            <p class="text-center fs-large fw-bold">Table 001</p>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exLargeModal"
+                            >
+                                Accept
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <h5 class="card-header">Call Service</h5>
+                    <div class="card-body">
+                        <div class="p-4">
+                            <p class="text-center fs-large fw-bold">Table 002</p>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exLargeModal"
+                            >
+                                Accept
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <h5 class="card-header">Call Service</h5>
+                    <div class="card-body">
+                        <div class="p-4">
+                            <p class="text-center fs-large fw-bold">Table 003</p>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exLargeModal"
+                            >
+                                Accept
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="content-backdrop fade"></div>
@@ -21,8 +80,6 @@
     var pusher = new Pusher('12345', {
         cluster: 'mt1',
         broadcaster: 'pusher',
-        //key: process.env.MIX_PUSHER_APP_KEY,
-        //cluster: process.env.MIX_PUSHER_APP_CLUSTER,
         forceTLS: false,
         wsHost: window.location.hostname,
         wsPort: 6001,
@@ -31,7 +88,7 @@
     var channel = pusher.subscribe('events');
     channel.bind('App\\Events\\RealTimeMessage',(d) => {
         if(d){
-            console.log("=============");
+            console.log(d.messages);
         }
     });
 </script>

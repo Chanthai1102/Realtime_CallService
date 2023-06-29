@@ -109,19 +109,6 @@
                                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Profile</label>
-                            <input class="form-control" type="file" id="formFile" name="profile" />
-                        </div>
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                                <label class="form-check-label" for="terms-conditions">
-                                    I agree to
-                                    <a href="javascript:void(0);">privacy policy & terms</a>
-                                </label>
-                            </div>
-                        </div>
                         <button class="btn btn-primary d-grid w-100">Sign up</button>
                     </form>
 

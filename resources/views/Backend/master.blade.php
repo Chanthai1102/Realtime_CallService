@@ -119,7 +119,7 @@
             <ul class="menu-inner py-1">
                 <!-- Dashboard -->
                 <li class="menu-item">
-                    <a href="index.html" class="menu-link">
+                    <a href="{{ route('notification') }}" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-home-circle"></i>
                         <div data-i18n="Analytics">Notification</div>
                     </a>
@@ -127,24 +127,10 @@
 
                 <!-- Layouts -->
                 <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <a href="{{ route('table-add') }}" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>
-                        <div data-i18n="Layouts">Website</div>
+                        <div data-i18n="Layouts">Table</div>
                     </a>
-
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="/admin/websitelogo" class="menu-link">
-                                <div data-i18n="Without menu">View Website Logo</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/admin/websitelogo-add" class="menu-link">
-                                <div data-i18n="Without navbar">Add Website Logo</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>

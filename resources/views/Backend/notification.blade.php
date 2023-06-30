@@ -3,53 +3,13 @@
 
     <!-- Content wrapper -->
     <div class="content-wrapper p-4">
-        <div class="container-xxl flex-grow-1 container-p-y row">
+        <div class="container-xxl flex-grow-1 container-p-y row" id="callservce">
             <div class="col-md-4">
                 <div class="card mb-4">
                     <h5 class="card-header">Call Service</h5>
                     <div class="card-body">
                         <div class="p-4">
-                            <p class="text-center fs-large fw-bold">Table 001</p>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button
-                                type="button"
-                                class="btn btn-primary"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exLargeModal"
-                            >
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <h5 class="card-header">Call Service</h5>
-                    <div class="card-body">
-                        <div class="p-4">
-                            <p class="text-center fs-large fw-bold">Table 002</p>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button
-                                type="button"
-                                class="btn btn-primary"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exLargeModal"
-                            >
-                                Accept
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <h5 class="card-header">Call Service</h5>
-                    <div class="card-body">
-                        <div class="p-4">
-                            <p class="text-center fs-large fw-bold">Table 003</p>
+                            <p class="text-center fs-large fw-bold" id="nametable">Table 001</p>
                         </div>
                         <div class="d-flex justify-content-end">
                             <button
@@ -88,7 +48,10 @@
     var channel = pusher.subscribe('events');
     channel.bind('App\\Events\\RealTimeMessage',(d) => {
         if(d){
-            console.log(d.message);
+            var nametable = (d.message);
+            var div = document.getElementById('callservce');
+            div.innerHTML += '<div class="col-md-4"> <div class="card mb-4"> <h5 class="card-header">Call Service</h5> <div class="card-body"> <div class="p-4"> <p class="text-center fs-large fw-bold" id="nametable"></p></div> <div class="d-flex justify-content-end"> <buttontype="button"class="btn btn-primary"data-bs-toggle="modal"data-bs-target="#exLargeModal" >Accept </button> </div> </div> </div> </div>';
+            document.getElementById('nametable').innerHTML = nametable;
         }
     });
 </script>

@@ -88,7 +88,7 @@
     var channel = pusher.subscribe('events');
     channel.bind('App\\Events\\RealTimeMessage',(d) => {
         if(d){
-            console.log(d.messages);
+            console.log(d.message);
         }
     });
 </script>

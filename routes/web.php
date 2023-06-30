@@ -15,7 +15,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 //Login
-Route::get('/login', [UserController::class, 'Login']);
+Route::get('/login', [UserController::class, 'Login'])->name('login');
 Route::post('/login/submit', [UserController::class, 'login_submit']);
 //Register
 Route::get('/register', [UserController::class, 'Register']);
@@ -25,7 +25,4 @@ Route::prefix('/admin')->group(function (){
     Route::middleware(['auth'])->group(function (){
         Route::get('/', [AdminController::class, 'admin']);
     });
-});
-Route::get('/notification', function (){
-    return view('Backend.notification');
 });

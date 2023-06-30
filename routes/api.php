@@ -18,6 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/test', function (Request $req){
-    event(new App\Events\RealTimeMessage("events"));
-    return "event sent";
+    event(new App\Events\RealTimeMessage($req->get("table")));
+    return $req->get("table");
 });

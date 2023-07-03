@@ -127,10 +127,11 @@
 
                 <!-- Layouts -->
                 <li class="menu-item">
-                    <a href="{{ route('table-add') }}" class="menu-link menu-toggle">
+                    <a href="{{ route('table') }}" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-layout"></i>
                         <div data-i18n="Layouts">Table</div>
                     </a>
+                </li>
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>

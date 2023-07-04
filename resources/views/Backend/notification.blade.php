@@ -71,6 +71,12 @@
             );
         }
     }
+<<<<<<< Updated upstream
     
+=======
+    const endpoint = "https://api.github.com/users/wesbos";
+    const wesPromise = fetch(endpoint);
+    console.log(wesPromise);
+>>>>>>> Stashed changes
 </script>
 @endsection

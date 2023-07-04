@@ -49,8 +49,6 @@
         }
         tableCard();
     }
-
-
     function tableCard(){
         $('#callservce').html("");
         for(var i=0; i<listTable.length; i++){

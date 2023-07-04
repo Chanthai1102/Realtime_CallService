@@ -10,9 +10,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
 <script>
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var listTable = [];
 
     //suscribing to pusher channel
@@ -33,22 +36,11 @@
             }else{
                 var nametable = (d.message);
                 listTable.push(d.message);
+                insertdata_notification(d.message);
                 tableCard();
             }
         }
     });
-
-
-    function onAcceptClick(table){
-        //console.log(table);
-        console.log(listTable);
-        var index = listTable.indexOf("'"+table+"'");
-        console.log(index);
-        if (index > -1) { // only splice array when item is found
-            listTable.splice(index, 1); // 2nd parameter means remove one item only
-        }
-        tableCard();
-    }
     function tableCard(){
         $('#callservce').html("");
         for(var i=0; i<listTable.length; i++){
@@ -71,12 +63,21 @@
             );
         }
     }
-<<<<<<< Updated upstream
-    
-=======
-    const endpoint = "https://api.github.com/users/wesbos";
-    const wesPromise = fetch(endpoint);
-    console.log(wesPromise);
->>>>>>> Stashed changes
+    // function insertdata_notification(name){
+    //     const request = new XMLHttpRequest();
+    //     request.open("GET", "/"+name+"/"+time, true);
+    //     request.send();
+    //
+    //     request.onreadystatechange = function (){
+    //         if(request.readyState == 4 && request.status == 200){
+    //             var obj = JSON.parse(request.responseText)
+    //             console.log(obj);
+    //         }
+    //     }
+    // }
+    fetch('http://127.0.0.1/:8000/api/test')
+    .then(data => {
+        console.log(data);
+    })
 </script>
 @endsection

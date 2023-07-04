@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\Add_NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::post('/register/submit', [UserController::class, 'register_submit']);
 Route::prefix('/admin')->group(function (){
     Route::middleware(['auth'])->group(function (){
         Route::get('/', [AdminController::class, 'admin'])->name('notification');
+        Route::get('/{name}/{date}',[Add_NotificationController::class, 'add_notification'])->name('add_notification');
         Route::get('/table-add', [TableController::class, 'table'])->name('table');
         Route::post('/table-add/submit', [TableController::class, 'table_submit'])->name('table-submit');
     });

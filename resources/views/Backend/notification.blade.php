@@ -63,21 +63,18 @@
             );
         }
     }
-    // function insertdata_notification(name){
-    //     const request = new XMLHttpRequest();
-    //     request.open("GET", "/"+name+"/"+time, true);
-    //     request.send();
-    //
-    //     request.onreadystatechange = function (){
-    //         if(request.readyState == 4 && request.status == 200){
-    //             var obj = JSON.parse(request.responseText)
-    //             console.log(obj);
-    //         }
-    //     }
-    // }
-    fetch('http://127.0.0.1/:8000/api/test')
-    .then(data => {
-        console.log(data);
-    })
+    function insertdata_notification(name){
+        const request = new XMLHttpRequest();
+        request.open("GET", "/"+name+"/"+time, true);
+        request.send(GET);
+
+        request.onreadystatechange = function (){
+            if(request.readyState == 4 && request.status == 200){
+                var obj = JSON.parse(request.responseText)
+                console.log(obj);
+            }
+        }
+    }
+
 </script>
 @endsection

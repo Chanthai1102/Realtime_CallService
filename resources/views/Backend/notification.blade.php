@@ -4,6 +4,26 @@
     <!-- Content wrapper -->
     <div class="content-wrapper p-4">
         <div class="container-xxl flex-grow-1 container-p-y row" id="callservce">
+            @foreach ($table as $item)
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-header ">Call Service</h5>
+                                <h5 class="card-header ">{{ $item -> bookingdate }}</h5>
+                            </div>
+                            <div class="card-body">
+                                    <div class="p-4">
+                                            <p class="text-center fs-large fw-bold">{{ $item -> nametable }}</p>
+                                        </div>
+                                    <div class="d-flex justify-content-end">
+                                            <button type="button"  class="btn btn-primary" onClick="onAcceptClick('+listTable[i]+')">
+                                                    Accept
+                                                </button>
+                                                </div>
+                                </div>
+                        </div>
+                    </div>
+            @endforeach
         </div>
     </div>
     <div class="content-backdrop fade"></div>
@@ -37,47 +57,48 @@
                 var nametable = (d.message);
                 listTable.push(d.message);
                 insertdata_notification(d.message);
+                window.location.reload(true);
                 tableCard();
             }
         }
     });
-    function tableCard(){
-        $('#callservce').html("");
-        for(var i=0; i<listTable.length; i++){
-            $('#callservce').append(
-                '<div class="col-md-4">' +
-                '<div class="card mb-4">' +
-                '    <h5 class="card-header">Call Service</h5>' +
-                '    <div class="card-body">' +
-                '        <div class="p-4">' +
-                '            <p class="text-center fs-large fw-bold">Table '+listTable[i]+'</p>' +
-                '        </div>' +
-                '        <div class="d-flex justify-content-end">' +
-                '            <button type="button"  class="btn btn-primary" onClick="onAcceptClick('+listTable[i]+')">' +
-                '                Accept' +
-                '            </button>' +
-                '        </div>' +
-                '    </div>' +
-                '</div>' +
-                '</div>'
-            );
-        }
-    }
-    // function insertdata_notification(name){
-    //     const request = new XMLHttpRequest();
-    //     request.open("GET", "/"+name+"/"+time, true);
-    //     request.send();
-    //
-    //     request.onreadystatechange = function (){
-    //         if(request.readyState == 4 && request.status == 200){
-    //             var obj = JSON.parse(request.responseText)
-    //             console.log(obj);
-    //         }
+    // setInterval(()=>{
+    //     window.location.reload(true);
+    // },5000);
+    // function tableCard(){
+    //     $('#callservce').html("");
+    //     for(var i=0; i<listTable.length; i++){
+    //         $('#callservce').append(
+    //             '<div class="col-md-4">' +
+    //             '<div class="card mb-4">' +
+    //             '    <h5 class="card-header">Call Service</h5>' +
+    //             '    <div class="card-body">' +
+    //             '        <div class="p-4">' +
+    //             '            <p class="text-center fs-large fw-bold">Table '+listTable[i]+'</p>' +
+    //             '        </div>' +
+    //             '        <div class="d-flex justify-content-end">' +
+    //             '            <button type="button"  class="btn btn-primary" onClick="onAcceptClick('+listTable[i]+')">' +
+    //             '                Accept' +
+    //             '            </button>' +
+    //             '        </div>' +
+    //             '    </div>' +
+    //             '</div>' +
+    //             '</div>'
+    //         );
     //     }
     // }
-    fetch('http://127.0.0.1/:8000/api/test')
-    .then(data => {
-        console.log(data);
-    })
+    function insertdata_notification(name){
+        const request = new XMLHttpRequest();
+        request.open("POST", "api/table?table="+name, true);
+        request.send();
+
+        request.onreadystatechange = function (){
+            if(request.readyState == 4 && request.status == 200){
+                var obj = JSON.parse(request.responseText)
+                console.log(obj);
+            }
+        }
+    }
+
 </script>
 @endsection

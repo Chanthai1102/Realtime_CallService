@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Add_Notification;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,8 @@ Route::get('/test', function (Request $req){
 Route::post('/table', function (Request $req){
     $Notification = new Add_Notification();
     $Notification -> nametable = $req->get("table");
-    $Notification -> bookingdate = new DateTime('now');
+    $currentTime = Carbon::now();
+    $Notification -> bookingdate = $currentTime;
     $Notification -> save();
     return $req->get("table");
 });

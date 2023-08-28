@@ -140,6 +140,7 @@
                         <tr>
                             <th>Table Name</th>
                             <th>Description</th>
+                            <th>QR</th>
                             <th>Actions</th>
                         </tr>
                         </thead>

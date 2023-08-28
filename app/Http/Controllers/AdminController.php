@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\add_notification;
 use Illuminate\Support\Facades\DB;
 use App\Models\Accept_Nofitication;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -22,8 +23,9 @@ class AdminController extends Controller
                  ->where('id', $id)
                  ->first();
         $accept_table = new Accept_Nofitication;
+        $currentTime = Carbon::now();
         $accept_table -> nametable = $table -> nametable;
-        $accept_table -> acceptdate = $table -> bookingdate;
+        $accept_table -> acceptdate = $currentTime;
         $accept_table -> save();
 
         DB::table('add__notification')

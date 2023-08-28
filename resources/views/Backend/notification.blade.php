@@ -62,29 +62,6 @@
             }
         }
     });
-
-//     function tableCard(){
-//         $('#callservce').html("");
-//         for(var i=0; i<listTable.length; i++){
-//             $('#callservce').append(
-//                 '<div class="col-md-4">' +
-//                 '<div class="card mb-4">' +
-//                 '    <h5 class="card-header">Call Service</h5>' +
-//                 '    <div class="card-body">' +
-//                 '        <div class="p-4">' +
-//                 '            <p class="text-center fs-large fw-bold">Table '+listTable[i]+'</p>' +
-//                 '        </div>' +
-//                 '        <div class="d-flex justify-content-end">' +
-//                 '            <button type="button"  class="btn btn-primary" onClick="onAcceptClick('+listTable[i]+')">' +
-//                 '                Accept' +
-//                 '            </button>' +
-//                 '        </div>' +
-//                 '    </div>' +
-//                 '</div>' +
-//                 '</div>'
-//             );
-//         }
-//     }
     function insertdata_notification(name){
         const request = new XMLHttpRequest();
         request.open("POST", "api/table?table="+name, true);
